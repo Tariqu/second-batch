@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 20px 10px;
+    background-color: #3700B3;
+    li {
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
