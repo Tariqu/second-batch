@@ -14,6 +14,7 @@ import {
 } from './components';
 import { LoginComponent } from './modules/shared/components/login/login.component';
 
+// routing array which contain all the routes including child route
 const routes: Routes = [
   {
     path: '',
