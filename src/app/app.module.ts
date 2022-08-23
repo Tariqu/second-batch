@@ -16,6 +16,7 @@ import {
   UsersComponent,
   UsersDetailComponent,
 } from './components';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {
     UsersComponent,
     UsersDetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
