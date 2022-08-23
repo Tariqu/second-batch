@@ -12,16 +12,37 @@ import {
   UsersComponent,
   UsersDetailComponent,
 } from './components';
+import { LoginComponent } from './modules/shared/components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'features', component: FeaturesComponent },
-  { path: 'docs', component: DocsComponent },
-  { path: 'resources', component: ResourcesComponent },
-  { path: 'events', component: EventsComponent },
-  { path: 'blogs', component: BlogsComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:userId', component: UsersDetailComponent },
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: 'features', component: FeaturesComponent },
+      { path: 'docs', component: DocsComponent },
+      { path: 'resources', component: ResourcesComponent },
+      { path: 'events', component: EventsComponent },
+      { path: 'blogs', component: BlogsComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'users/:userId', component: UsersDetailComponent },
+      { path: '', redirectTo: '/features', pathMatch: 'full' },
+    ],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'user-modules',
+    loadChildren: () =>
+      import('./modules/users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'product',
+    loadChildren: () =>
+      import('./modules/product/product.module').then((m) => m.ProductModule),
+  },
   { path: 'home', redirectTo: '/docs', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
