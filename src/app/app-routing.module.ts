@@ -12,12 +12,14 @@ import {
   UsersComponent,
   UsersDetailComponent,
 } from './components';
+import { AuthGuard } from './guard/auth.guard';
 import { LoginComponent } from './modules/shared/components/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'features', component: FeaturesComponent },
       { path: 'docs', component: DocsComponent },
@@ -35,6 +37,9 @@ const routes: Routes = [
   },
   {
     path: 'user-modules',
+    data: {
+      expectedRole: 'admin',
+    },
     loadChildren: () =>
       import('./modules/users/users.module').then((m) => m.UsersModule),
   },
