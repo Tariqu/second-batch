@@ -1,1 +1,10 @@
-<p>users works!</p>
+<div>
+    <h3>All post</h3>
+    <div class="card-container">
+        <div *ngFor="let p of posts" class="card" (click)="gotoDetail(p.id)">
+            <h2>{{p.title}}</h2>
+            <div class="card-body">{{p.body}}</div>
+        </div>
+    </div>
+
+</div>

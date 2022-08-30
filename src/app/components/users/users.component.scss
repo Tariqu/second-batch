@@ -1,0 +1,19 @@
+.card {
+    padding: 20px;
+    margin: 10px;
+    background-color: aqua;
+    height: 300px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding-top: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}

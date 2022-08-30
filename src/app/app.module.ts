@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import {
   UsersDetailComponent,
 } from './components';
 import { SharedModule } from './modules/shared/shared.module';
+import { PostService } from './services/post/post.service';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,8 @@ import { SharedModule } from './modules/shared/shared.module';
     UsersComponent,
     UsersDetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, HttpClientModule],
+  providers: [PostService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
